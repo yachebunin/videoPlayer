@@ -1,0 +1,107 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+button:hover, #progress {
+    cursor: pointer;
+}
+
+button:active {
+    background: rgba(40, 40, 40);
+}
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#player {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+#back-button {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transform: translateY(-100%);
+    width: 50%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#forward-button {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateY(-100%);
+    width: 50%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#back-arrow {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
+#forward-arrow {
+    position: absolute;
+    left: 95%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-100%);
+    color: #fff;
+}
+
+#display {
+    width: 50vw;
+}
+
+#progress {
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    transform: translateY(-100%);
+    width: 100%;
+    border: 0px;
+    z-index: 100;
+}
+
+#control-panel {
+    display: flex;
+}
+
+#control-panel button {
+    display: flex;
+    padding: 1px 3px;
+    border: 0px;
+    border-radius: 10px;
+}
+
+#control-panel > button:not(:last-child) {
+    margin-right: 10px;
+}
+
+#control-panel img {
+    width: 1em;
+}
+
+#control-volume {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+#volume {
+    margin: 0px 10px;
+}
