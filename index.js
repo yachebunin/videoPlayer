@@ -59,6 +59,43 @@ function changeVolume() {
 
 function progressUpdate() {
   progress.value = 100 * (video.currentTime / video.duration);
+
+  document.getElementById("current-time").innerHTML =
+    secondsToTime(video.currentTime) + " / " + secondsToTime(video.duration);
+}
+
+function secondsToTime(time) {
+  let hours = Math.floor(time / (60 * 60)),
+    dm = time % (60 * 60),
+    minutes = Math.floor(dm / 60),
+    ds = dm % 60,
+    seconds = Math.ceil(ds);
+
+  if (seconds === 60) {
+    seconds = 0;
+    minutes = minutes + 1;
+  }
+
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+
+  if (minutes === 60) {
+    minutes = 0;
+    hours = hours + 1;
+  }
+
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  if (hours === 0) {
+    fulltime = minutes + ":" + seconds;
+  } else {
+    fulltime = hours + ":" + minutes + ":" + seconds;
+  }
+
+  return fulltime;
 }
 
 function onKeyPress() {
@@ -85,32 +122,32 @@ function videoRewind(rewindDirection) {
   }
 
   if (rewindDirection === "back" && onKeyPress()) {
-    let backArrow = document.createElement('div')
+    let backArrow = document.createElement("div");
 
-    backArrow.innerHTML = "&larr;"
-    backArrow.id = "back-arrow"
-    backButton.append(backArrow)
+    backArrow.innerHTML = "&larr;";
+    backArrow.id = "back-arrow";
+    backButton.append(backArrow);
 
     setTimeout(() => {
-      backArrow.remove()
-    }, 200)
+      backArrow.remove();
+    }, 200);
 
-    video.currentTime -= 10
+    video.currentTime -= 10;
     return;
   }
 
   if (rewindDirection === "forward" && onKeyPress()) {
-    let forwardArrow = document.createElement('div')
-    
-    forwardArrow.innerHTML = "&rarr;"
-    forwardArrow.id = "forward-arrow"
-    forwardButton.append(forwardArrow)
+    let forwardArrow = document.createElement("div");
+
+    forwardArrow.innerHTML = "&rarr;";
+    forwardArrow.id = "forward-arrow";
+    forwardButton.append(forwardArrow);
 
     setTimeout(() => {
-      forwardArrow.remove()
-    }, 200)
+      forwardArrow.remove();
+    }, 200);
 
-    video.currentTime += 10
+    video.currentTime += 10;
     return;
   }
 }
